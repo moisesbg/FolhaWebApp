@@ -1,7 +1,7 @@
 # FolhaWebApp
 
 ## Resumo
-Front-end de uma aplicação demonstração de cálculo fictício de folha de pagamento (calcula o salário, INSS e IRRF) para estudo do Java EE. Utiliza-se: 
+Front-end de uma aplicação demonstração de cálculo fictício de folha de pagamento (calcula o salário, INSS e IRRF) para estudo de tecnologias front-end. Utiliza-se: 
 - Html5
 - Webpack
 - ECMA Script 6
