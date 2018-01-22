@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-8">
+            <h2 class="title">{{vm.title}}</h2>
+            <form>
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" ng-model="vm.evento.nome" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <select class="form-control" ng-model="vm.evento.tipoEvento">
+                        <option value = "PROVENTO">PROVENTO</option>
+                        <option value = "DESCONTO">DESCONTO</option>
+                    </select>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label>Unidade</label>
+                    <select class="form-control" ng-model="vm.evento.unidade">
+                        <option value="AUTOMATICO">AUTOMÁTICO</option>
+                        <option value="HORAS">HORAS</option>
+                        <option value="DIAS">DIAS</option>
+                    </select>
+                </div>
+                                
+                <div class="form-group">
+                    <label>Monta base IRRF</label>
+                    <select class="form-control" ng-model="vm.evento.montaBaseIrrf">
+                        <option value="SIM">SIM</option>
+                        <option value="NAO">NÃO</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Monta Base INSS</label>
+                    <select class="form-control" ng-model="vm.evento.montaBaseInss">
+                        <option value="SIM">SIM</option>
+                        <option value="NAO">NÃO</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tipo de fórmula</label>
+                    <select class="form-control" ng-model="vm.evento.tipoFormula">
+                        <option value="HORAS_NORMAIS">HORAS NORMAIS</option>
+                        <option value="INSS">INSS</option>
+                        <option value="IRRF">IRRF</option>
+                        <option value="VARIAVEIS">VARIÁVEIS</option>
+                    </select>
+                </div>
+
+                <button ng-click="vm.save()" type="button" class="btn btn-success">Salvar evento</button>
+                <a ui-sref="evento.list" class="btn btn-danger">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>

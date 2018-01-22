@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline" ng-submit="vm.load()">
+            <input ng-model="vm.filterValue" class="form-control mr-sm-2" type="search" placeholder="Buscar" 
+                    aria-label="Buscar">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+        <a class="btn btn-outline-info" ui-sref="evento.new">Novo evento</a>
+    </nav>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Base p/ IRRF</th>
+                <th scope="col">Base p/ INSS</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="evento in vm.eventos">
+                <th scope="row">{{evento.id}} - {{evento.nome}}</th>
+                <td>{{evento.tipoEvento}}</td>
+                <td>{{evento.montaBaseIrrf}}</td>
+                <td>{{evento.montaBaseInss}}</td>
+                <td style="text-align: right">
+                    <a class="btn btn-sm btn-success" ui-sref="evento.edit({id: evento.id})">Editar</a>
+                    <button class="btn btn-sm btn-danger" ng-click="vm.excluir(evento.id)" type="button">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

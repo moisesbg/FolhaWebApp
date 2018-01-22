@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline" ng-submit="vm.consultar()">
+            <label>Competência: &nbsp;</label>
+            <input ng-model="vm.competencia" class="form-control mr-sm-2" type="month" placeholder="informe a competencia" 
+                    aria-label="Buscar">
+
+            <label>ID do funcionário: &nbsp;</label>
+            <input ng-model="vm.funcionarioId" class="form-control mr-sm-2" type="number" 
+                    placeholder="informe o id do funcionário" aria-label="Buscar">
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+    </nav>
+
+    <div class="form-group">
+        <label>Nome</label>
+        <input type="text" ng-model="vm.folha.funcionario.nome" class="form-control" disabled>
+    </div>
+
+    <div class="form-group">
+        <label>Admissão</label>
+        <input type="date" ng-model="vm.folha.funcionario.dataAdmissao" class="form-control" disabled>
+    </div>
+    
+    <div class="form-group">
+        <label>Pagamento</label>
+        <input type="date" ng-model="vm.folha.dataPagamento" class="form-control" disabled>
+    </div>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align: left">Evento</th>
+                <th scope="col" style="text-align: right">Referência</th>
+                <th scope="col" style="text-align: right">Provento</th>
+                <th scope="col" style="text-align: right">Desconto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.folha.itensFolha">
+                <td style="text-align: left">
+                    {{item.evento.id}} - {{item.evento.nome}} 
+                </td>
+                <td style="text-align: right">
+                    {{item.valorReferencia | number:2 }}
+                </td>
+                <td style="text-align: right">
+                    <div ng-show="item.evento.tipoEvento == 'PROVENTO'">
+                            {{item.valorCalculado | number:2 }}
+                    </div>
+                </td>    
+                <td style="text-align: right">
+                    <div ng-show="item.evento.tipoEvento == 'DESCONTO'">
+                            {{item.valorCalculado | number:2 }}
+                    </div>
+                </td>    
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Sub-total</th>
+                <th></th>
+                <th style="text-align: right">{{vm.totalProvento | number:2 }}</th>
+                <th style="text-align: right">{{vm.totalDesconto | number:2 }}</th>
+            </tr>
+        </tfoot>
+    </table>
+    <div><b>Total líquido: {{vm.liquido | number:2}}</b></div>
+</div>
